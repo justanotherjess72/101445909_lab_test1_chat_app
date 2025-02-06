@@ -1,14 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Chat</title>
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="../js/chat.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Room</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    <form id="chat-form">
-        <input type="text" id="message" placeholder="Type a message" required>
-        <button type="submit">Send</button>
-    </form>
+    <div class="container">
+        <h2>Chat Room</h2>
+        
+        <!-- Room Selection -->
+        <label for="room-select">Choose a room:</label>
+        <select id="room-select">
+            <option value="devops">DevOps</option>
+            <option value="cloud computing">Cloud Computing</option>
+            <option value="covid19">COVID-19</option>
+            <option value="sports">Sports</option>
+            <option value="nodeJS">NodeJS</option>
+        </select>
+        <button id="join-room-btn">Join Room</button>
+        <button id="leave-room-btn">Leave Room</button>
+        
+        <!-- Typing Indicator -->
+        <div id="typing-indicator"></div>
+
+        <!-- Chat Box -->
+        <div class="chat-box" id="messages"></div>
+        
+        <!-- Chat Input -->
+        <form id="chat-form" class="input-group">
+            <input type="text" id="message" class="form-control" placeholder="Type a message..." required>
+            <button type="submit">Send</button>
+        </form>
+        
+        <button id="logout-btn">Logout</button>
+    </div>
+    
+    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script src="../js/main.js"></script>
+
 </body>
 </html>
